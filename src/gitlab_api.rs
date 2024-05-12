@@ -13,11 +13,8 @@ pub enum FetchError {
 }
 
 pub async fn fetch_gitlab_stats(username: String) -> Result<HashMap<String, i32>,FetchError>{
-    let body = reqwest::get("https://gitlab.com/users/emochka2007/calendar.json")
-        .await?
-        .text()
-        .await?;
-
+    let url = format!("https://gitlab.com/users/{}/calendar.json", username);
+    let body = reqwest::get(&url).await?.text().await?;
     let v: HashMap<String, i32> = serde_json::from_str(&body)?;
     return Ok(v)
 }

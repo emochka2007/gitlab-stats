@@ -2,7 +2,7 @@ use std::collections::HashMap;
 
 
 // ███░░░
-pub fn hashmap_to_md(stats_map: Vec<(&'static str, i32)>){
+pub fn hashmap_to_md(stats_map: Vec<(&'static str, i32)>) -> String {
     let mut md_string = String::from("| Month | Contributions | Progress | \n");
     md_string.push_str("|-------|---------------|---------------------------|\n");
     for (month, amount) in stats_map {
@@ -19,7 +19,8 @@ pub fn hashmap_to_md(stats_map: Vec<(&'static str, i32)>){
 
         md_string.push_str(&result);
     }
-    println!("{md_string}");
+
+    md_string
 }
 
 fn month_block_visual(blocks: i32)-> String{
