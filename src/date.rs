@@ -7,7 +7,7 @@ const MONTHS: [&str; 12] = [
 ];
 pub fn sort_by_month(stats: HashMap<String, i32>)-> Vec<(&'static str, i32)> {
     let current_month = Utc::now().month() as usize;
-    let current_month_index = current_month - 1;
+    let current_month_index = current_month;
 
     let mut results: Vec<(&str, i32)> = MONTHS.iter().map(|&m| (m, 0)).collect();
 
